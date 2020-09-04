@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 	next();
 });
 
-var port=4040;
+var port=3000;
 
 //conexion a bdd con una funcion
 mongoose.Promise = global.Promise;
