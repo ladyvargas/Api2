@@ -15,6 +15,21 @@ function verProducto(req, res){
 		}
 	});
 }
+function verProducto2(req, res){
+	var Id_Producto = req.query.id;
+	Producto.find({"Id_Producto": Id_Producto}).exec((err,favoritos)=>{
+		if(err){
+			res.status(500).send({message: 'error al deveolver los datos'});
+		}else {
+			if(!favoritos){
+				res.status(404).send({message: 'no existen datos'});
+			}else{
+				console.log(favoritos);
+				res.status(200).send({favoritos});
+			}
+		}
+	});
+}
 
 function verPedidos(req, res){
 	listpedidos.find({ }).exec((err,favoritos)=>{
@@ -108,5 +123,6 @@ module.exports = {
 	verPedidos,
 	verProducto,
 	updateProducto,
+	verProducto2,
 	deleteFavorito
 }
