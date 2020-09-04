@@ -84,7 +84,7 @@ async function pedidos(req,res) {
 }
 
 function updateProducto(req, res){
-	var Id = req.params.id;
+	var Id = req.query.id;
 	const update = JSON.parse(JSON.stringify(req.body));
 	const options = { "returnNewDocument": true };
 
